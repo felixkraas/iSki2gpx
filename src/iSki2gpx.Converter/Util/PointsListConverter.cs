@@ -19,8 +19,7 @@ namespace iSki2gpx.Converter.Util {
                     Longitude = decimal.Parse( values[1] ),
                     Elevation = int.Parse( values[2] ),
                     Time = decimal.Parse( values[3] ),
-                    Speed = int.Parse( values[4] )
-                } );
+                    Speed = int.Parse( values[4] ) } );
             }
 
             return points;

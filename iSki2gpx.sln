@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{1682DD1C-2B1
 		doc\2025-02.25.json = doc\2025-02.25.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6DB0753A-1D9E-457D-B858-EFB0594CEFDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSki2gpx.Converter.Tests", "tests\iSki2gpx.Converter.Tests\iSki2gpx.Converter.Tests.csproj", "{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +21,16 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6B0758C6-7366-4F6C-AE71-E4A138258864} = {77CCE1B8-AEA0-4F54-946E-ED0122416155}
+		{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124} = {6DB0753A-1D9E-457D-B858-EFB0594CEFDE}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6B0758C6-7366-4F6C-AE71-E4A138258864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B0758C6-7366-4F6C-AE71-E4A138258864}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B0758C6-7366-4F6C-AE71-E4A138258864}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B0758C6-7366-4F6C-AE71-E4A138258864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
