@@ -1,3 +1,4 @@
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using iSki2gpx.Converter.Models.iSki;
@@ -26,6 +27,13 @@ namespace iSki2gpx.Converter.Util {
         }
 
         public override void Write( Utf8JsonWriter writer, List<TrackPoint> value, JsonSerializerOptions options ) {
+            
+            StringBuilder sb = new StringBuilder();
+            foreach( TrackPoint point in value ) {
+                sb.Append( $"{point.Segment} " );
+            }
+
+            writer.WriteStringValue( sb.ToString() );
         }
     }
 }
