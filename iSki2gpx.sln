@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{77CCE1B8-AEA0-4F54-946E-ED0122416155}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSki2gpx.Converter", "src\iSki2gpx.Converter\iSki2gpx.Converter.csproj", "{6B0758C6-7366-4F6C-AE71-E4A138258864}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{1682DD1C-2B1E-47B8-BFF9-1DC1EA1AA755}"
+	ProjectSection(SolutionItems) = preProject
+		doc\iSkiFormatNotes.md = doc\iSkiFormatNotes.md
+		doc\2025-02.25.json = doc\2025-02.25.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6B0758C6-7366-4F6C-AE71-E4A138258864} = {77CCE1B8-AEA0-4F54-946E-ED0122416155}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B0758C6-7366-4F6C-AE71-E4A138258864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B0758C6-7366-4F6C-AE71-E4A138258864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B0758C6-7366-4F6C-AE71-E4A138258864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B0758C6-7366-4F6C-AE71-E4A138258864}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
