@@ -1,108 +1,108 @@
 namespace iSki2gpx.Converter.Models.iSki;
 
-public class Track {
+public record Track {
     public long TrackId {
         get;
-        set;
+        init;
     }
 
     public DateTime StartDate {
         get;
-        set;
+        init;
     }
 
     public long Duration {
         get;
-        set;
+        init;
     }
 
     public string ResortName {
         get;
-        set;
+        init;
     }
 
     public decimal Distance {
         get;
-        set;
+        init;
     }
 
     public decimal HighestPoint {
         get;
-        set;
+        init;
     }
 
     public decimal DistanceUp {
         get;
-        set;
+        init;
     }
 
     public decimal DistanceDown {
         get;
-        set;
+        init;
     }
 
     public decimal AltitudeUp {
         get;
-        set;
+        init;
     }
 
     public decimal AltitudeDown {
         get;
-        set;
+        init;
     }
 
     public decimal AverageSpeed {
         get;
-        set;
+        init;
     }
 
     public bool AverageSpeedRestricted {
         get;
-        set;
+        init;
     }
 
     public decimal MaxSpeed {
         get;
-        set;
+        init;
     }
 
     public bool MaxSpeedRestricted {
         get;
-        set;
+        init;
     }
 
     public bool GeometryProcessed {
         get;
-        set;
+        init;
     }
 
     public bool HasDimensionM {
         get;
-        set;
+        init;
     }
 
     public long DurationActive {
         get;
-        set;
+        init;
     }
 
     public long DurationPassice {
         get;
-        set;
+        init;
     }
 
     public int Lifts {
         get;
-        set;
+        init;
     }
 
     public bool MyTrack {
         get;
-        set;
+        init;
     }
 
     public List<TrackPoint> TrackPoints {
         get;
-        set;
+        init;
     }
 }

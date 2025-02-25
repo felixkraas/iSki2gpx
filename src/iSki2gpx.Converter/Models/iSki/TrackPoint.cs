@@ -1,34 +1,34 @@
 namespace iSki2gpx.Converter.Models.iSki {
-    public class TrackPoint {
+    public record TrackPoint {
         
         public string Segment {
             get;
-            set;
+            init;
         }
         
         public decimal Latitude {
             get;
-            set;
+            init;
         }
         
         public decimal Longitude {
             get;
-            set;
+            init;
         }
         
         public int Elevation {
             get;
-            set;
+            init;
         }
         
         public decimal Time {
             get;
-            set;
+            init;
         }
         
         public int Speed {
             get;
-            set;
+            init;
         }
         
     }
