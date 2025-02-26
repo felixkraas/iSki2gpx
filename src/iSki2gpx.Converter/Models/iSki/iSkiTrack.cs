@@ -104,7 +104,7 @@ public record iSkiTrack {
     }
 
     [JsonPropertyName("track")]
-    public List<iSkiTrackPoint> TrackPoints {
+    public IReadOnlyList<iSkiTrackPoint> TrackPoints {
         get;
         init;
     }

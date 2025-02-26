@@ -1,11 +1,12 @@
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using iSki2gpx.Converter.Models.iSki;
 
 namespace iSki2gpx.Converter.Util {
-    public class PointsListConverter : JsonConverter<List<iSkiTrackPoint>> {
-        public override List<iSkiTrackPoint>? Read( ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options ) {
+    public class PointsListConverter : JsonConverter<IReadOnlyList<iSkiTrackPoint>> {
+        public override IReadOnlyList<iSkiTrackPoint>? Read( ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options ) {
             var points = new List<iSkiTrackPoint>();
 
             var stringValue = reader.GetString();
@@ -19,14 +20,14 @@ namespace iSki2gpx.Converter.Util {
                     Longitude = decimal.Parse( values[1] ),
                     Elevation = int.Parse( values[2] ),
                     Time = decimal.Parse( values[3] ),
-                    Speed = int.Parse( values[4] ) } );
+                    Speed = int.Parse( values[4] )
+                } );
             }
 
-            return points;
+            return new ReadOnlyCollection<iSkiTrackPoint>( points );
         }
 
-        public override void Write( Utf8JsonWriter writer, List<iSkiTrackPoint> value, JsonSerializerOptions options ) {
-            
+        public override void Write( Utf8JsonWriter writer, IReadOnlyList<iSkiTrackPoint> value, JsonSerializerOptions options ) {
             StringBuilder sb = new StringBuilder();
             foreach( iSkiTrackPoint point in value ) {
                 sb.Append( $"{point.Segment} " );
