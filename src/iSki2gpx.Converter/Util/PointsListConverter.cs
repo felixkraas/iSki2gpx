@@ -28,12 +28,7 @@ namespace iSki2gpx.Converter.Util {
         }
 
         public override void Write( Utf8JsonWriter writer, IReadOnlyList<iSkiTrackPoint> value, JsonSerializerOptions options ) {
-            StringBuilder sb = new StringBuilder();
-            foreach( iSkiTrackPoint point in value ) {
-                sb.Append( $"{point.Segment} " );
-            }
-
-            writer.WriteStringValue( sb.ToString() );
+            writer.WriteStringValue( string.Join( " ", value.Select( p => p.Segment ) ) );
         }
     }
 }
