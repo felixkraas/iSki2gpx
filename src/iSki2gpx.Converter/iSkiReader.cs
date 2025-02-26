@@ -1,15 +1,23 @@
 using System.Text;
 using System.Text.Json;
 using iSki2gpx.Converter.Models.iSki;
+using iSki2gpx.Converter.Util;
+using Microsoft.Extensions.Logging;
 
 namespace iSki2gpx.Converter {
-    public static class iSkiReader {
-        private static readonly JsonSerializerOptions _options;
+    /// <summary>
+    /// Provides functionality to read and deserialize iSki JSON data into <see cref="Track"/> objects.
+    /// </summary>
+    public class iSkiReader {
+        private readonly JsonSerializerOptions _options = new JsonSerializerOptions() {
+            PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower
+        };
 
-        static iSkiReader() {
-            _options = new JsonSerializerOptions() {
-                PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower
-            };
+        private ILogger? _logger;
+
+        public iSkiReader( ILogger<iSkiReader>? logger = null ) {
+            _logger = logger;
+            _options.Converters.Add( new PointsListConverter() );
         }
 
         /// <summary>
@@ -18,8 +26,8 @@ namespace iSki2gpx.Converter {
         /// <param name="json">The JSON string to be deserialized into a <see cref="Track"/> object.
         /// If null or empty, an empty JSON string will be used.</param>
         /// <returns>A <see cref="Track"/> object if deserialization is successful; otherwise, null.</returns>
-        public static async Task<Track?> ReadAsync( string json ) {
-            using Stream jsonStream = new MemoryStream( Encoding.UTF8.GetBytes( json ?? string.Empty ) );
+        public async Task<Track?> ReadFromJsonAsync( string json ) {
+            await using Stream jsonStream = new MemoryStream( Encoding.UTF8.GetBytes( json ?? string.Empty ) );
             Track? track = await JsonSerializer.DeserializeAsync<Track>( jsonStream, _options );
 
             return track;
@@ -30,8 +38,8 @@ namespace iSki2gpx.Converter {
         /// </summary>
         /// <param name="stream">The stream containing JSON data to be deserialized into a <see cref="Track"/> object. If null, a null track will be returned.</param>
         /// <returns>A <see cref="Track"/> object if deserialization is successful; otherwise, null.</returns>
-        public static async Task<Track?> ReadAsync( FileStream stream ) {
-            Track? track = await JsonSerializer.DeserializeAsync<Track>( stream, _options );
+        public async Task<Track?> ReadFromFileAsync( string filePath ) {
+            Track? track = await JsonSerializer.DeserializeAsync<Track>( new FileStream( filePath, FileMode.Open ), _options );
 
             return track;
         }

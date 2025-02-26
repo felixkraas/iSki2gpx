@@ -28,4 +28,14 @@
       <ProjectReference Include="..\..\src\iSki2gpx.Converter\iSki2gpx.Converter.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Assets\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Assets\2025-02-25.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

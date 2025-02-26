@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace iSki2gpx.Converter.Models.iSki;
 
 public record Track {
@@ -11,7 +13,7 @@ public record Track {
         init;
     }
 
-    public long Duration {
+    public decimal Duration {
         get;
         init;
     }
@@ -81,12 +83,12 @@ public record Track {
         init;
     }
 
-    public long DurationActive {
+    public decimal DurationActive {
         get;
         init;
     }
 
-    public long DurationPassice {
+    public decimal DurationPassice {
         get;
         init;
     }
@@ -101,6 +103,7 @@ public record Track {
         init;
     }
 
+    [JsonPropertyName("track")]
     public List<TrackPoint> TrackPoints {
         get;
         init;
