@@ -10,11 +10,11 @@ namespace iSki2gpx.Converter.GPX.Writer {
             XmlWriterSettings options = new XmlWriterSettings() {
                 Indent = true, Encoding = Encoding.UTF8, NamespaceHandling = NamespaceHandling.OmitDuplicates
             };
-            StringWriter writer = new StringWriter();
-            XmlWriter xmlWriter = XmlWriter.Create( writer, options );
+            using StreamWriter writer = new StreamWriter(filePath, false, Encoding.UTF8);
+            using XmlWriter xmlWriter = XmlWriter.Create( writer, options );
             serializer.Serialize( xmlWriter, gpxElement );
-            var sb = writer.GetStringBuilder();
-            var test = sb.ToString();
+            writer.Flush();
+            writer.Close();
         }
     }
 }
