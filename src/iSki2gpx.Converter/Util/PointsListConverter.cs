@@ -24,7 +24,7 @@ namespace iSki2gpx.Converter.Util {
                 } );
             }
 
-            return new ReadOnlyCollection<iSkiTrackPoint>( points );
+            return new ReadOnlyCollection<iSkiTrackPoint>( points.OrderBy( p => p.Time ).ToList() );
         }
 
         public override void Write( Utf8JsonWriter writer, IReadOnlyList<iSkiTrackPoint> value, JsonSerializerOptions options ) {
