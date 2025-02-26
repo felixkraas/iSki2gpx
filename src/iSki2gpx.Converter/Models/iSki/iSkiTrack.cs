@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace iSki2gpx.Converter.Models.iSki;
 
-public record Track {
+public record iSkiTrack {
     public long TrackId {
         get;
         init;
@@ -104,7 +104,7 @@ public record Track {
     }
 
     [JsonPropertyName("track")]
-    public List<TrackPoint> TrackPoints {
+    public List<iSkiTrackPoint> TrackPoints {
         get;
         init;
     }

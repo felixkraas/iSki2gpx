@@ -1,5 +1,5 @@
 namespace iSki2gpx.Converter.Models.iSki {
-    public record TrackPoint {
+    public record iSkiTrackPoint {
         
         public string Segment {
             get;
