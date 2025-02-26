@@ -7,8 +7,12 @@ namespace iSki2gpx.Converter.Tests.GPX {
         private readonly iSkiDataFixture _fixture;
         private readonly iSkiReader _reader = new iSkiReader();
         private readonly GpxWriter _gpxWriter = new GpxWriter();
+
+        private readonly string _fileName = "test.gpx";
+
         public GpxWriterTest( iSkiDataFixture fixture ) {
             _fixture = fixture;
+            File.Delete( _fileName );
         }
 
         [Fact]
@@ -18,9 +22,10 @@ namespace iSki2gpx.Converter.Tests.GPX {
             iSki2gpxConverter converter = new iSki2gpxConverter();
 
             var gpx = converter.Convert( track );
-            
-            _gpxWriter.WriteToFile( gpx, "test.gpx" );
-            
+
+            await _gpxWriter.WriteToFileAsync( gpx, _fileName );
+
+            Assert.True( File.Exists( _fileName ) );
         }
     }
 }
