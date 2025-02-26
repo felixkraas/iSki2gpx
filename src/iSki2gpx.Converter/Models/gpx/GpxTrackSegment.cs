@@ -6,6 +6,6 @@ namespace iSki2gpx.Converter.Models.gpx {
         public List<GpxTrackPoint> TrackPoints {
             get;
             set;
-        }
+        } = new List<GpxTrackPoint>();
     }
 }

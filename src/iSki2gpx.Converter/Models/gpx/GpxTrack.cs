@@ -24,6 +24,6 @@ namespace iSki2gpx.Converter.Models.gpx {
         public List<GpxTrackSegment> TrackSegments {
             get;
             set;
-        }
+        } = new List<GpxTrackSegment>();
     }
 }
