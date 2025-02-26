@@ -1,6 +1,6 @@
 using iSki2gpx.Converter.Reader;
 
-namespace iSki2gpx.Converter.Tests {
+namespace iSki2gpx.Converter.Tests.iSki {
     public class iSkiReaderTest : IClassFixture<iSkiDataFixture> {
         private readonly iSkiDataFixture _fixture;
         private readonly iSkiReader _reader = new iSkiReader();

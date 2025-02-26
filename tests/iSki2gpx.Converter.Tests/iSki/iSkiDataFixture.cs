@@ -1,4 +1,4 @@
-namespace iSki2gpx.Converter.Tests {
+namespace iSki2gpx.Converter.Tests.iSki {
     public class iSkiDataFixture {
         public string iSkiData {
             get;
