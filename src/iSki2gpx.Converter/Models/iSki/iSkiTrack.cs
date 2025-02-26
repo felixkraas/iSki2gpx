@@ -53,21 +53,25 @@ public record iSkiTrack {
         init;
     }
 
+    [JsonPropertyName( "speed_avg" )]
     public decimal AverageSpeed {
         get;
         init;
     }
 
+    [JsonPropertyName( "speed_avg_restricted" )]
     public bool AverageSpeedRestricted {
         get;
         init;
     }
 
+    [JsonPropertyName( "speed_max" )]
     public decimal MaxSpeed {
         get;
         init;
     }
 
+    [JsonPropertyName( "speed_max_restricted" )]
     public bool MaxSpeedRestricted {
         get;
         init;
@@ -88,7 +92,7 @@ public record iSkiTrack {
         init;
     }
 
-    public decimal DurationPassice {
+    public decimal DurationPassive {
         get;
         init;
     }
@@ -103,7 +107,7 @@ public record iSkiTrack {
         init;
     }
 
-    [JsonPropertyName("track")]
+    [JsonPropertyName( "track" )]
     public IReadOnlyList<iSkiTrackPoint> TrackPoints {
         get;
         init;
