@@ -18,5 +18,17 @@ namespace iSki2gpx.Converter.Tests {
             Exception? exception = await Record.ExceptionAsync( async () => await _reader.ReadFromFileAsync( _fixture.DataFilePath ) );
             Assert.Null( exception );
         }
+
+        [Fact]
+        public async void DeserializeTrackThrowsIfJsonNull() {
+            Exception? exception = await Record.ExceptionAsync( async () => await _reader.ReadFromJsonAsync( null! ) );
+            Assert.IsType<ArgumentNullException>( exception );
+        }
+
+        [Fact]
+        public async void DeserializeTrackThrowsIfJsonEmpty() {
+            Exception? exception = await Record.ExceptionAsync( async () => await _reader.ReadFromJsonAsync( string.Empty ) );
+            Assert.IsType<ArgumentNullException>( exception );
+        }
     }
 }

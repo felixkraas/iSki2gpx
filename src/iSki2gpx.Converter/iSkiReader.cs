@@ -27,7 +27,10 @@ namespace iSki2gpx.Converter {
         /// If null or empty, an empty JSON string will be used.</param>
         /// <returns>A <see cref="Track"/> object if deserialization is successful; otherwise, null.</returns>
         public async Task<Track?> ReadFromJsonAsync( string json ) {
-            await using Stream jsonStream = new MemoryStream( Encoding.UTF8.GetBytes( json ?? string.Empty ) );
+            if( string.IsNullOrEmpty( json ) ) {
+                throw new ArgumentNullException( nameof( json ), "JSON string cannot be null or empty." );
+            }
+            await using Stream jsonStream = new MemoryStream( Encoding.UTF8.GetBytes( json ) );
             Track? track = await JsonSerializer.DeserializeAsync<Track>( jsonStream, _options );
 
             return track;
