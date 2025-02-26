@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace iSki2gpx.Converter.Models.gpx {
+namespace iSki2gpx.Converter.GPX.Models {
     [XmlRoot( ElementName = "gpx", Namespace = "http://www.topografix.com/GPX/1/1", IsNullable = false )]
     public class GpxElement {
         [XmlElement( ElementName = "metadata" )]

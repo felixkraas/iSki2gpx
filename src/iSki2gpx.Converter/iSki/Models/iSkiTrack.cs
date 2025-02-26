@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace iSki2gpx.Converter.Models.iSki;
+namespace iSki2gpx.Converter.iSki.Models;
 
 public record iSkiTrack {
     public long TrackId {

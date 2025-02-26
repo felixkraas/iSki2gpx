@@ -1,4 +1,4 @@
-using iSki2gpx.Converter.Reader;
+using iSki2gpx.Converter.iSki.Reader;
 
 namespace iSki2gpx.Converter.Tests.iSki {
     public class iSkiReaderTest : IClassFixture<iSkiDataFixture> {

@@ -1,10 +1,10 @@
 using System.Text;
 using System.Text.Json;
-using iSki2gpx.Converter.Models.iSki;
+using iSki2gpx.Converter.iSki.Models;
 using iSki2gpx.Converter.Util;
 using Microsoft.Extensions.Logging;
 
-namespace iSki2gpx.Converter.Reader {
+namespace iSki2gpx.Converter.iSki.Reader {
     /// <summary>
     /// Provides functionality to read and deserialize iSki JSON data into <see cref="iSkiTrack"/> objects.
     /// </summary>
@@ -17,7 +17,7 @@ namespace iSki2gpx.Converter.Reader {
 
         public iSkiReader( ILogger<iSkiReader>? logger = null ) {
             _logger = logger;
-            _options.Converters.Add( new PointsListConverter() );
+            _options.Converters.Add( new iSkiPointsListConverter() );
         }
 
         /// <summary>

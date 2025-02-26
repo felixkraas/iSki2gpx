@@ -1,4 +1,4 @@
-using iSki2gpx.Converter.Reader;
+using iSki2gpx.Converter.iSki.Reader;
 using iSki2gpx.Converter.Tests.iSki;
 
 namespace iSki2gpx.Converter.Tests.GPX {

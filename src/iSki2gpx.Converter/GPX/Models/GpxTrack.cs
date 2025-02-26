@@ -1,9 +1,9 @@
 using System.Xml.Serialization;
 
-namespace iSki2gpx.Converter.Models.gpx {
-    public class GpxMetadata {
+namespace iSki2gpx.Converter.GPX.Models {
+    public class GpxTrack {
         [XmlElement( ElementName = "name", IsNullable = false )]
-        public string Name {
+        public string? Name {
             get;
             set;
         }
@@ -14,16 +14,16 @@ namespace iSki2gpx.Converter.Models.gpx {
             set;
         }
 
-        [XmlElement( ElementName = "time" )]
-        public DateTime Time {
+        [XmlElement( ElementName = "src", IsNullable = false )]
+        public string? Source {
             get;
             set;
         }
 
-        [XmlElement( ElementName = "keywords", IsNullable = false )]
-        public string? Keywords {
+        [XmlElement( ElementName = "trkseg" )]
+        public List<GpxTrackSegment> TrackSegments {
             get;
             set;
-        }
+        } = new List<GpxTrackSegment>();
     }
 }

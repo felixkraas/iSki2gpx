@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace iSki2gpx.Converter.Models.gpx {
+namespace iSki2gpx.Converter.GPX.Models {
     public class GpxTrackPoint {
         [XmlElement( ElementName = "ele" )]
         public decimal Elevation {

@@ -1,5 +1,6 @@
-using iSki2gpx.Converter.Models.gpx;
-using iSki2gpx.Converter.Models.iSki;
+using iSki2gpx.Converter.GPX.Builder;
+using iSki2gpx.Converter.GPX.Models;
+using iSki2gpx.Converter.iSki.Models;
 using iSki2gpx.Converter.Util;
 using Microsoft.Extensions.Logging;
 
@@ -14,7 +15,10 @@ namespace iSki2gpx.Converter {
         public GpxElement Convert( iSkiTrack track ) {
             GpxBuilder builder = new GpxBuilder();
 
-            builder.WithMetadata( $"{track.ResortName} - {track.StartDate.Date.ToShortDateString()}", null, track.StartDate );
+            builder.AddMetadata( metadataBuilder => {
+                metadataBuilder.WithName( $"{track.ResortName} - {track.StartDate.Date.ToShortDateString()}" );
+                metadataBuilder.WithTime( track.StartDate );
+            } );
             builder.AddTrack( trackBuilder => {
                 trackBuilder.WithName( "Ski Track" );
                 trackBuilder.AddTrackSegment( segmentBuilder => {

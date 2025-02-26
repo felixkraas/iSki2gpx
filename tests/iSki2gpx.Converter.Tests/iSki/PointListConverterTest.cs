@@ -1,11 +1,12 @@
 using System.Collections.ObjectModel;
-using iSki2gpx.Converter.Models.iSki;
+using iSki2gpx.Converter.iSki.Models;
+using iSki2gpx.Converter.iSki.Reader;
 using iSki2gpx.Converter.Tests.Util;
 using iSki2gpx.Converter.Util;
 
 namespace iSki2gpx.Converter.Tests.iSki {
     public class PointListConverterTest {
-        private readonly PointsListConverter _converter = new PointsListConverter();
+        private readonly iSkiPointsListConverter _converter = new iSkiPointsListConverter();
         private readonly string _testData = "\"10.59903,46.49089,2608,1740473674.246,0 10.59903,46.49089,2608,1740473674.246,0\"";
 
         [Fact]

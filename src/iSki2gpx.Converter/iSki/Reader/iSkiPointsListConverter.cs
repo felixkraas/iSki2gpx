@@ -1,11 +1,10 @@
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using iSki2gpx.Converter.Models.iSki;
+using iSki2gpx.Converter.iSki.Models;
 
-namespace iSki2gpx.Converter.Util {
-    public class PointsListConverter : JsonConverter<IReadOnlyList<iSkiTrackPoint>> {
+namespace iSki2gpx.Converter.iSki.Reader {
+    public class iSkiPointsListConverter : JsonConverter<IReadOnlyList<iSkiTrackPoint>> {
         public override IReadOnlyList<iSkiTrackPoint>? Read( ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options ) {
             var points = new List<iSkiTrackPoint>();
 
