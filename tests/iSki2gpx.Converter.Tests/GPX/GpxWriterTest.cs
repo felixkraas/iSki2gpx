@@ -23,7 +23,7 @@ namespace iSki2gpx.Converter.Tests.GPX {
 
             var gpx = converter.Convert( track );
 
-            await _gpxWriter.WriteToFileAsync( gpx, _fileName );
+            Assert.True( await _gpxWriter.WriteToFileAsync( gpx, _fileName ) );
 
             Assert.True( File.Exists( _fileName ) );
         }
