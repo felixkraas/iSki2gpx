@@ -24,7 +24,7 @@ namespace iSki2gpx.Converter.GPX.Builder {
             _metadata.Time = DateTimeUtil.UnixToDateTime( unixEpoch );
             return this;
         }
-        
+
         internal GpxMetadata Build() {
             return _metadata;
         }

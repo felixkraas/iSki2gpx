@@ -30,6 +30,7 @@ namespace iSki2gpx.Converter.iSki.Reader {
             if( string.IsNullOrEmpty( json ) ) {
                 throw new ArgumentNullException( nameof( json ), "JSON string cannot be null or empty." );
             }
+
             await using Stream jsonStream = new MemoryStream( Encoding.UTF8.GetBytes( json ) );
             iSkiTrack? track = await JsonSerializer.DeserializeAsync<iSkiTrack>( jsonStream, _options );
 

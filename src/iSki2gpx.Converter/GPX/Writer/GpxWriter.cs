@@ -16,13 +16,13 @@ namespace iSki2gpx.Converter.GPX.Writer {
 
             stream.Position = 0;
             string xmlText = Encoding.UTF8.GetString( stream.ToArray() );
-            
+
             XmlDocument xmlDocument = new XmlDocument();
             XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
             xmlReaderSettings.Schemas.Add( "http://www.topografix.com/GPX/1/1", "http://www.topografix.com/GPX/1/1/gpx.xsd" );
             xmlReaderSettings.ValidationType = ValidationType.Schema;
             xmlReaderSettings.IgnoreWhitespace = true;
-            
+
             using XmlReader reader = XmlReader.Create( stream, xmlReaderSettings );
             xmlDocument.Load( reader );
 
