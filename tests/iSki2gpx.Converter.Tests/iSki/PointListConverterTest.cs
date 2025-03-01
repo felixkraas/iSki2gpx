@@ -14,8 +14,8 @@ namespace iSki2gpx.Converter.Tests.iSki {
             Elevation = 2608,
             Time = 1740473674.246M,
             Speed = 0,
-            Latitude = 10.59903M,
-            Longitude = 46.49089M
+            Longitude = 10.59903M,
+            Latitude = 46.49089M
         };
 
         private readonly iSkiTrackPoint _point2 = new iSkiTrackPoint() {
@@ -23,8 +23,8 @@ namespace iSki2gpx.Converter.Tests.iSki {
             Elevation = 2608,
             Time = 1740473674.246M,
             Speed = 0,
-            Latitude = 10.59903M,
-            Longitude = 46.49089M
+            Longitude = 10.59903M,
+            Latitude = 46.49089M
         };
 
         [Fact]
