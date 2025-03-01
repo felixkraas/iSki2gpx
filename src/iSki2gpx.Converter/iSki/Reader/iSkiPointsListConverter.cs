@@ -15,11 +15,11 @@ namespace iSki2gpx.Converter.iSki.Reader {
                 var values = segment.Split( ',' );
                 points.Add( new iSkiTrackPoint {
                     Segment = segment,
-                    Latitude = decimal.Parse( values[0] ),
-                    Longitude = decimal.Parse( values[1] ),
-                    Elevation = int.Parse( values[2] ),
-                    Time = decimal.Parse( values[3] ),
-                    Speed = int.Parse( values[4] )
+                    Latitude = decimal.Parse( values[0], System.Globalization.CultureInfo.InvariantCulture ),
+                    Longitude = decimal.Parse( values[1], System.Globalization.CultureInfo.InvariantCulture ),
+                    Elevation = int.Parse( values[2], System.Globalization.CultureInfo.InvariantCulture ),
+                    Time = decimal.Parse( values[3], System.Globalization.CultureInfo.InvariantCulture ),
+                    Speed = int.Parse( values[4], System.Globalization.CultureInfo.InvariantCulture )
                 } );
             }
 

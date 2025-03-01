@@ -16,22 +16,22 @@ namespace iSki2gpx.Converter {
             GpxBuilder builder = new GpxBuilder();
 
             builder.AddMetadata( metadataBuilder => {
-                metadataBuilder.WithName( $"{track.ResortName} - {track.StartDate.Date.ToShortDateString()}" );
-                metadataBuilder.WithTime( track.StartDate );
-            } );
-            builder.AddTrack( trackBuilder => {
-                trackBuilder.WithName( "Ski Track" );
-                trackBuilder.AddTrackSegment( segmentBuilder => {
-                    foreach( iSkiTrackPoint trackPoint in track.TrackPoints ) {
-                        segmentBuilder.AddTrackPoint( pointBuilder => {
-                            pointBuilder.WithElevation( trackPoint.Elevation );
-                            pointBuilder.WithLatitude( trackPoint.Latitude );
-                            pointBuilder.WithLongitude( trackPoint.Longitude );
-                            pointBuilder.WithTime( trackPoint.Time );
+                    metadataBuilder.WithName( $"{track.ResortName} - {track.StartDate.Date.ToShortDateString()}" )
+                        .WithTime( track.StartDate );
+                } )
+                .AddTrack( trackBuilder => {
+                    trackBuilder.WithName( "Ski Track" )
+                        .AddTrackSegment( segmentBuilder => {
+                            foreach( iSkiTrackPoint trackPoint in track.TrackPoints ) {
+                                segmentBuilder.AddTrackPoint( pointBuilder => {
+                                    pointBuilder.WithElevation( trackPoint.Elevation )
+                                        .WithLatitude( trackPoint.Latitude )
+                                        .WithLongitude( trackPoint.Longitude )
+                                        .WithTime( trackPoint.Time );
+                                } );
+                            }
                         } );
-                    }
                 } );
-            } );
 
             return builder.Build();
         }
