@@ -11,7 +11,7 @@ namespace iSki2gpx.Scraper.Tests {
         public iSkiScraper Scraper {
             get;
             init;
-        } = new(false);
+        } = new(headless: true);
 
         public WebScraperFixture() {
             Configuration = new ConfigurationBuilder()
