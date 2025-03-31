@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -10,8 +11,9 @@ namespace iSki2pgx.Scraper {
         private readonly string _iSkiTracksUrl = "https://iski.cc/en/community/tracks";
         private readonly string _iSkiLogoutUrl = "https://delphi.iski.cc/logout";
         private readonly IWebDriver _webDriver;
+        private readonly ILogger<iSkiScraper>? _logger;
 
-        public iSkiScraper( bool headless = true ) {
+        public iSkiScraper( ILogger<iSkiScraper> logger = null, bool headless = true ) {
             var options = new ChromeOptions();
             if( headless ) {
                 options.AddArgument( "--headless=new" );
