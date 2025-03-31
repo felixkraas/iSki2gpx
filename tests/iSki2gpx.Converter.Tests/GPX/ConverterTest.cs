@@ -17,7 +17,7 @@ namespace iSki2gpx.Converter.Tests.GPX {
 
             iSki2gpxConverter converter = new iSki2gpxConverter();
 
-            var result = converter.Convert( track );
+            var result = converter.Convert( track! );
             Assert.Multiple( () => {
                 Assert.NotNull( result );
                 Assert.NotNull( result.Metadata );
