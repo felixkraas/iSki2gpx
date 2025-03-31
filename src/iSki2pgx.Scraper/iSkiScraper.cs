@@ -8,6 +8,7 @@ namespace iSki2pgx.Scraper {
         private readonly string _iSkiBaseUrl = "https://iski.cc/";
         private readonly string _iSkiLoginUrl = "https://iski.cc/en/community";
         private readonly string _iSkiTracksUrl = "https://iski.cc/en/community/tracks";
+        private readonly string _iSkiLogoutUrl = "https://delphi.iski.cc/logout";
         private readonly IWebDriver _webDriver;
 
         public iSkiScraper( bool headless = true ) {
@@ -22,16 +23,29 @@ namespace iSki2pgx.Scraper {
         }
 
         public void Authenticate( string username, string password ) {
-            var cookies = _webDriver.Manage().Cookies.AllCookies;
-            if( cookies.Any( c => string.Equals( c.Name, "remember_buddy_token", StringComparison.InvariantCultureIgnoreCase ) ) ) {
-                return;
+            if( string.IsNullOrEmpty( username ) ) {
+                throw new ArgumentException( nameof( username ) );
+            }
+
+            if( string.IsNullOrEmpty( password ) ) {
+                throw new ArgumentException( nameof( password ) );
             }
 
             _webDriver.Navigate().GoToUrl( _iSkiLoginUrl );
 
             Thread.Sleep( 2000 );
 
-            var frame = _webDriver.FindElement( By.TagName( "iframe" ) );
+            var cookies = _webDriver.Manage().Cookies.AllCookies;
+            if( cookies.Any( c => string.Equals( c.Name, "remember_buddy_token", StringComparison.InvariantCultureIgnoreCase ) ) ) {
+                return;
+            }
+
+            IWebElement frame = null;
+            try {
+                frame = _webDriver.FindElement( By.TagName( "iframe" ) );
+            } catch( NoSuchElementException ex ) {
+                return;
+            }
 
             _webDriver.SwitchTo().Frame( frame );
             _webDriver.FindElement( By.Name( "buddy[login]" ) ).SendKeys( username );
@@ -40,8 +54,8 @@ namespace iSki2pgx.Scraper {
             _webDriver.FindElement( By.XPath( "/html/body/div/form/input[3]" ) ).Click();
         }
 
-        public List<Tuple<string, string>> GetTrackUrls() {
-            List<Tuple<string, string>> tracks = new();
+        public List<string> GetTrackUrls() {
+            List<string> tracks = new();
             _webDriver.Navigate().GoToUrl( _iSkiTracksUrl );
             Thread.Sleep( 2000 );
             var selectElement = _webDriver.FindElement( By.TagName( "select" ) );
@@ -62,10 +76,48 @@ namespace iSki2pgx.Scraper {
             foreach( var trackUrl in trackUrls ) {
                 var trackId = trackUrl.Split( '/' ).Last();
                 var jsonUrl = $"https://delphi.iski.cc/api/tracks/{trackId}/details";
-                tracks.Add( new Tuple<string, string>( trackId, jsonUrl ) );
+                tracks.Add( jsonUrl );
             }
 
             return tracks;
+        }
+
+
+        public List<string> GetTrackIds() {
+            List<string> tracks = new();
+            _webDriver.Navigate().GoToUrl( _iSkiTracksUrl );
+            Thread.Sleep( 2000 );
+            var selectElement = _webDriver.FindElement( By.TagName( "select" ) );
+            var select = new SelectElement( selectElement );
+            select.SelectByText( "All seasons" );
+
+            Thread.Sleep( 1000 );
+
+            var trackElements = _webDriver.FindElements( By.ClassName( "track-box" ) );
+
+            List<string> trackUrls = new List<string>();
+
+            foreach( IWebElement trackElement in trackElements ) {
+                var trackUrl = trackElement.FindElement( By.ClassName( "track-box--left" ) ).GetAttribute( "href" );
+                trackUrls.Add( trackUrl );
+            }
+
+            foreach( var trackUrl in trackUrls ) {
+                var trackId = trackUrl.Split( '/' ).Last();
+                tracks.Add( trackId );
+            }
+
+            return tracks;
+        }
+
+        public void Logout() {
+            _webDriver.Navigate().GoToUrl( _iSkiLogoutUrl );
+            _webDriver.Manage().Cookies.DeleteAllCookies();
+        }
+
+        public string GetTrackData( string trackUrl ) {
+            _webDriver.Navigate().GoToUrl( trackUrl );
+            return _webDriver.PageSource;
         }
     }
 }
