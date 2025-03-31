@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6DB0753A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSki2gpx.Converter.Tests", "tests\iSki2gpx.Converter.Tests\iSki2gpx.Converter.Tests.csproj", "{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSki2pgx.Scraper", "src\iSki2pgx.Scraper\iSki2pgx.Scraper.csproj", "{66A2BFA7-DBF7-4ADA-BD04-7CC5E4C04BE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSki2pgx.Scraper", "src\iSki2gpx.Scraper\iSki2gpx.Scraper.csproj", "{66A2BFA7-DBF7-4ADA-BD04-7CC5E4C04BE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSki2gpx.Scraper.Tests", "tests\iSki2gpx.Scraper.Tests\iSki2gpx.Scraper.Tests.csproj", "{9ED40FF7-8133-4F8A-8504-F45AF7901F14}"
 EndProject

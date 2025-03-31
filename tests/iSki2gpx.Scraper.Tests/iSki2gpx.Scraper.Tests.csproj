@@ -32,7 +32,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\iSki2pgx.Scraper\iSki2pgx.Scraper.csproj" />
+      <ProjectReference Include="..\..\src\iSki2gpx.Scraper\iSki2gpx.Scraper.csproj" />
     </ItemGroup>
 
 </Project>
