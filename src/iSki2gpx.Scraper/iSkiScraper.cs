@@ -5,7 +5,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
 namespace iSki2pgx.Scraper {
-    public class iSkiScraper {
+    public class iSkiScraper : IDisposable {
         private readonly string _iSkiBaseUrl = "https://iski.cc/";
         private readonly string _iSkiLoginUrl = "https://iski.cc/en/community";
         private readonly string _iSkiTracksUrl = "https://iski.cc/en/community/tracks";
@@ -84,9 +84,8 @@ namespace iSki2pgx.Scraper {
             return tracks;
         }
 
-
-        public List<string> GetTrackIds() {
-            List<string> tracks = new();
+        public List<long> GetTrackIds() {
+            List<long> tracks = new();
             _webDriver.Navigate().GoToUrl( _iSkiTracksUrl );
             Thread.Sleep( 2000 );
             var selectElement = _webDriver.FindElement( By.TagName( "select" ) );
@@ -106,7 +105,7 @@ namespace iSki2pgx.Scraper {
 
             foreach( var trackUrl in trackUrls ) {
                 var trackId = trackUrl.Split( '/' ).Last();
-                tracks.Add( trackId );
+                tracks.Add( Convert.ToInt64( trackId ) );
             }
 
             return tracks;
@@ -115,11 +114,21 @@ namespace iSki2pgx.Scraper {
         public void Logout() {
             _webDriver.Navigate().GoToUrl( _iSkiLogoutUrl );
             _webDriver.Manage().Cookies.DeleteAllCookies();
+            _webDriver.Navigate().GoToUrl( _iSkiBaseUrl );
         }
 
         public string GetTrackData( string trackUrl ) {
             _webDriver.Navigate().GoToUrl( trackUrl );
             return _webDriver.PageSource;
+        }
+
+        public string GetTrackData( long trackId ) {
+            return GetTrackData( $"https://delphi.iski.cc/api/tracks/{trackId}/details" );
+        }
+
+        public void Dispose() {
+            _webDriver.Quit();
+            _webDriver.Dispose();
         }
     }
 }
