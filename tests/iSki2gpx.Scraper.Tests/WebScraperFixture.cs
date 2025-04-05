@@ -2,7 +2,7 @@ using iSki2pgx.Scraper;
 using Microsoft.Extensions.Configuration;
 
 namespace iSki2gpx.Scraper.Tests {
-    public class WebScraperFixture {
+    public class WebScraperFixture : IDisposable {
         public IConfiguration Configuration {
             get;
             init;
@@ -18,6 +18,10 @@ namespace iSki2gpx.Scraper.Tests {
                 .AddUserSecrets<WebScraperFixture>()
                 .AddEnvironmentVariables()
                 .Build();
+        }
+
+        public void Dispose() {
+            Scraper.Dispose();
         }
     }
 }
