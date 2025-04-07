@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6DB0753A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSki2gpx.Converter.Tests", "tests\iSki2gpx.Converter.Tests\iSki2gpx.Converter.Tests.csproj", "{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSki2pgx.Scraper", "src\iSki2gpx.Scraper\iSki2gpx.Scraper.csproj", "{66A2BFA7-DBF7-4ADA-BD04-7CC5E4C04BE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSki2gpx.Scraper.Tests", "tests\iSki2gpx.Scraper.Tests\iSki2gpx.Scraper.Tests.csproj", "{9ED40FF7-8133-4F8A-8504-F45AF7901F14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +26,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6B0758C6-7366-4F6C-AE71-E4A138258864} = {77CCE1B8-AEA0-4F54-946E-ED0122416155}
 		{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124} = {6DB0753A-1D9E-457D-B858-EFB0594CEFDE}
+		{66A2BFA7-DBF7-4ADA-BD04-7CC5E4C04BE7} = {77CCE1B8-AEA0-4F54-946E-ED0122416155}
+		{9ED40FF7-8133-4F8A-8504-F45AF7901F14} = {6DB0753A-1D9E-457D-B858-EFB0594CEFDE}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6B0758C6-7366-4F6C-AE71-E4A138258864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -32,5 +38,13 @@ Global
 		{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEA1F51A-28BE-4D0D-B1A2-0B45D0581124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A2BFA7-DBF7-4ADA-BD04-7CC5E4C04BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A2BFA7-DBF7-4ADA-BD04-7CC5E4C04BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A2BFA7-DBF7-4ADA-BD04-7CC5E4C04BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A2BFA7-DBF7-4ADA-BD04-7CC5E4C04BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ED40FF7-8133-4F8A-8504-F45AF7901F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED40FF7-8133-4F8A-8504-F45AF7901F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED40FF7-8133-4F8A-8504-F45AF7901F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED40FF7-8133-4F8A-8504-F45AF7901F14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
